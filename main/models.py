@@ -5,6 +5,7 @@ class ProductEntry(models.Model):
     price = models.IntegerField()
     description = models.TextField()
     stocks = models.IntegerField()
+    time = models.DateField(auto_now_add=True)
 
     @property
     def is_stock_ready(self):

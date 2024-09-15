@@ -24,6 +24,9 @@ class mainTest(TestCase):
             stocks = 10,
             time = now,
         )
+        self.assertTrue(stock.is_stock_ready)
+
+        
     # def test_strong_mood_user(self):
     #     now = timezone.now()
     #     mood = ProductEntry.objects.create(
