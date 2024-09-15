@@ -15,6 +15,15 @@ class mainTest(TestCase):
         response = Client().get('/skibidi/')
         self.assertEqual(response.status_code, 404)
 
+    def test_stocks_ready(self):
+        now = timezone.now()
+        stock = ProductEntry.ojects.create(
+            name= "Badges nama",
+            price = 5000,
+            description= "Badge nama ukuran 1x3 cm",
+            stocks = 10,
+            time = now,
+        )
     # def test_strong_mood_user(self):
     #     now = timezone.now()
     #     mood = ProductEntry.objects.create(

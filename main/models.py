@@ -6,6 +6,10 @@ class ProductEntry(models.Model):
     description = models.TextField()
     stocks = models.IntegerField()
 
+    @property
+    def is_stock_ready(self):
+        return self.stocks_intensity >= 1
+
     # @property
     # def is_mood_strong(self):
     #     return self.mood_intensity > 5
