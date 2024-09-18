@@ -13,7 +13,26 @@
     **Menambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID dan membuat routing URL untuk masing-masing views yang telah ditambahkan **
     Pertama, saya membuka views.py dan menambahkan import untuk HttpResponse dan Serializer di bagian atas kode. Setelah itu, saya menambahkan masing-masing fungsi; show_xml, show_json, show_xml_by_id, show_json_by_id, yang memiliki parameter request dengan return HttpResponse dengan serialize yang sesuai dengan masing-masing. Setelah itu, saya mengimport fungsi-fungsi tadi di urls.py dan menambahkan path masing-masing dari mereka ke dalam urlpatterns.
 
+**Mengapa kita perlu data delivery dalam pengimplemetasian sebuah platform?** 
+    untuk memudahkan dalam mengelola, memproses atau menganalisis data yang ada dengan memusatkan data yang di dapatkan.
 
+**yang mana lebih baik antara XML dan JSON? mengapa JSON lebih populer dibandingkan XML**
+    XML dan JSON memiliki kelebihan dan kekurangan masing-masing, sehingga dalam penggunaannya, bergantung dengan kebutuhan yang diperlukan untuk menentukan yang mana yang lebih baik.
+    Alasan mengapa JSON lebih populer karena JSON lebih mudah untuk dibaca oleh manusia dan tidak terikat oleh bahasa pemograman tertentu. Selain itu, JSON memiliki performa yang lebih baik dan cepat dibuat, serta menggunakan sedikit memori dibandingkan XML.
+
+**Fungsi is_valid() pada form**
+    is_valid() memiliki fungsi untuk memvalidasi isi input pada form tersebut apakah sesuai dengan validasi yang ada, dan mereturn value True or False. Kita perlu menggunakan fungsi ini untuk memastikan data yang dikirimkan sudah benar dan aman untuk masuk ke proses selanjutnya.
+
+**Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?**
+    csrf_token diperlukan untuk mengaktifkan perlindungan aplikasi web dari CSRF. Jika kita tidak menambahkan csrf_token, maka Django akan menolak permintaan dengan respon 403 error karena token tidak valid. 
+    
+    Penyerang bisa saja login ke situs korban dan login. Karena tidak menambahkan csrf_token,  penyerang bisa langsung masuk karena server tidak memeriksa asal permintaan masuk.
+
+**Bukti SS XML dan JSON**
+    XML ![alt text](image-2.png)
+    JSON ![alt text](image-3.png)
+    XML by ID ![alt text](image-5.png)
+    JSON by ID ![alt text](image-4.png)
 
 <!-- TUGAS 2 -->
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
