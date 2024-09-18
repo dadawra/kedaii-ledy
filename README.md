@@ -1,3 +1,21 @@
+<!-- TUGAS 3 --> tugas 2 ada dibawah
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+    **Membuat input form untuk objek model app sebelumnya**
+    sebelum membuat input form, saya membuat base.html sebagai template dasar atau kerangka umum untuk memastikan situs web nantinya tidak terjadi redudansi kode. base.thml ini saya masukkan kedalam variabel TEMPLATES pada settings.py untuk memberi tau bahwa base.html adalah berkas template, dan di extend juga pada main.html.
+
+    Setelah itu saya mengubah primary key menjadi UUID untuk menjaga keamanan aplikasi. UUID ini ditambahkan dengan mengimport dan memasukkan variabel id yang berjenis UUIDField dalam berkas models.py. Baru kemudian saya membuat form untuk input.
+
+    Pertama saya membuat forms.py yang berisi struktur form saat menerima Product Entry yang baru. Setelahnya pada views.py, saya menambahkan import redirect dan membuat fungsi create_mood_entry baru dengan parameter request yang akan memunculkan form dan mengambil datanya secara otomatis. Pada views.py, saya menambahkan fungsi yang mengambil seluruh objek Product Entry yang sudah ada dalam database, sehingga hasilnya nanti bisa muncul pada halaman utama. Pada urls.py, fungsi create_mood_entry yang tadi di import, dan pathnya ditambahkan pada urlpatterns yang ada di urls.py
+
+    Setelah itu, saya membuat create_mood_entry.html yang mengextend base.html yang berfungsi untuk menambahkan input ProductEntry nantinya. Kemudian, pada main.html saya menambahkan kode untuk menampilkan data dari ProductInput yang sudah dimasukkan, dan diubah dalam bentuk tabel. Setelah itu, saya mengecek apakah kode-kode yang telah saya tambahkan berfungsi dengan baik atau tidak dengan mengecek apakah saya bisa menginput data, dan melihat data yang telah saya input.
+
+
+    **Menambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID dan membuat routing URL untuk masing-masing views yang telah ditambahkan **
+    Pertama, saya membuka views.py dan menambahkan import untuk HttpResponse dan Serializer di bagian atas kode. Setelah itu, saya menambahkan masing-masing fungsi; show_xml, show_json, show_xml_by_id, show_json_by_id, yang memiliki parameter request dengan return HttpResponse dengan serialize yang sesuai dengan masing-masing. Setelah itu, saya mengimport fungsi-fungsi tadi di urls.py dan menambahkan path masing-masing dari mereka ke dalam urlpatterns.
+
+
+
+<!-- TUGAS 2 -->
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
     **Membuat Proyek Django baru**
 
