@@ -1,3 +1,57 @@
+<!-- TUGAS 4 --> tugas 3 ada dibawah
+**Perbedaan antara HttpResponseRedirect() dan redirect()**
+    argumen pertama dari HttpResponseRedirect() hanya bisa berupa url dan hanya mereturn url, sedangkap redirect() mereturn HttpResponseRedirect() yang bisa menerima model, views, dan url menjadi argumennya.
+
+**Cara kerja penghubungan model Product dengan User**
+    Pertama adalah mengimport User bawaan yang disediakan oleh Django dan menambahkan models.ForeignKey(User, on_delete=models.CASCADE) pada ProductEntry untuk menghubungkan setiap produk dengan User dan jika user dihapus, maka seluruh produk milik tersebut juga akan dihapus. Selain itu juga, untuk memastikan kembali bahwa produk yang diisi adalah milik si user yang sedang login, field user akan diisi dengan request.value
+
+**Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut**
+    Authentication adalah proses untuk mengidentifikasi pengguna, umumnya menggunakan username dan password. Jika pengguna berhasil memasukkan username dan password yang sesuai, maka pengguna tersebut terautentikasi. Setelah itu sistem baru bisa melakukan authorization, yaitu mengotorisasi hak akses dan izin yang dimiliki oleh pengguna.
+    Saat pengguna login, pengguna akan mengirimkan kredensial, setelah itu Django akan melakukan authentication dan membuat session jika berhasil di otentikasi, lalu Django akan menentukan apa saja yang boleh diakses oleh pengguna tersebut.
+    Django mengimplementasikan kedua konsep tersebut dengan menggunakan model User. Pada saat login, fungsi login akan memanggil authenticate() atau AuthenticationForm() untuk memvalidasi kredensial pengguna. Untuk authorization, Django menggunakan permissions dan groups untuk mengelola hak akses pengguna. Bisa menggunakan user.has_perm() atau decorator @permission_required
+
+**Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?**
+    Django mengingat pengguna yang telah login dengan  menggunakan session cookies. Django akan membuat session ID yang unik untuk disimpan di database yang akan dikirimkan bersamaan dengan session cookie ke browser pengguna setelah membuat session pada server. Setiap pengguna yang pernah login membuat HTTP request, browser akan mengirikan cookie ke server. Django akan mengecek session tersebut untuk diidentifikasi.
+    Kegunaan lain dari cookies antara lain untuk menyimpan preferensi dan melacak aktivitas pengguna. Selain itu bisa digunakan untuk menyimpan CSRF tokens dan menyimpan data otentikasi yang sederhana.
+    Tidak semua cookies aman digunakan, karena cookies memiliki risiko untuk disadap karena menyimpan data-data yang sensitif.
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+    ***Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+    Sebelum menambahkan fungsi regist, login dan logout, saya melakukan import UsercreationForm dan messages pada views.py untuk memuat formulir perdaftaran pengguna dan membuat akun pengguna ketika pengguna mendaftarkan akun tanpa membuat kode dari awal. Setelah itu, saya membuat fungsi register dengan parameter request yang langsung memanggil fungsi login jika data berhasil disimpan. Selanjutnya saya membuat register.html untuk memunculkan fungsi register tersebut dan mengimpor fungsi dan menambahkan path urlnya pada urlpatterns di urls.py.
+
+    Untuk fungsi login dan logout memiliki langka yang sama. Saya mengimport 
+    from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+    from django.contrib.auth import authenticate, login
+    untuk login dan untuk logout saya mengimport
+    from django.contrib.auth import logout.
+    Selanjutnya saya membuat masing-masing fungsi login dan logout pada views.py yang memiliki parameter request. Fungsi ini saya sesuaikan dengan masing-masing fungsinya. Untuk tombol logout, saya tambahkan pada main.html dibawah tombol untuk menambahkan product. Setelah itu, saya mengimport kedua fungsi tersebut dan menambahkannya pada urlpatterns di urls.py.
+
+    Untuk memastikan user harus login sebelum masuk ke halaman main, saya menambahkan kode
+    @login_required(login_url='/login')
+    sebelum fungsi show_main.
+
+    ***Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+    ![alt text](image-6.png)
+    c:\Users\daraz\Pictures\Screenshots\Cuplikan layar 2024-09-25 052354.png
+
+    ***Menghubungkan model Product dengan User.
+    Pada models.py, saya mengimport User, setelah itu menambahkan potongan kode
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    untuk memastikan setiap user dihubungkan dengan product entry yang dibuat. Kemudian pada views.py di bagian fungsi create_product_entry ditambahkan kode
+    mood_entry = form.save(commit=False)
+    mood_entry.user = request.user
+    yang masing-masing berfungsi untuk tidak melakukan save secara otomatis dan memastikan product entry yang dilakukan adalah milik user yang sedang login. Pada bagian name di dalam context yang ada pada show_main juga diubah menjadi request.user.name untuk memunculkan nama yang sesuai dengan username user yang sedang login pada saat itu.
+
+    ***Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+    Pertama, import datetime,HttpResponseRedirect dan reverse pada bagian paling atas, setelah itu menambahkan potongan kode 
+    response = HttpResponseRedirect(reverse("main:show_main"))
+    response.set_cookie('last_login', str(datetime.datetime.now()))
+    pada fungsi login user untuk menerapkan cookies dan memasukkannya pada response. Di dalam show_main juga ditambahkan
+    'last_login': request.COOKIES['last_login'], 
+    pada bagian context dan menambahkan
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    dibagian paling bawah main.html untuk memunculkan waktu terakhir login.
+
 <!-- TUGAS 3 --> tugas 2 ada dibawah
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
     **Membuat input form untuk objek model app sebelumnya**
