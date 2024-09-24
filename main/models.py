@@ -15,6 +15,9 @@ class ProductEntry(models.Model):
     def is_stock_ready(self):
         return self.stocks_intensity >= 1
 
-    # @property
-    # def is_mood_strong(self):
-    #     return self.mood_intensity > 5
+# nama character, umur int, isHappy boolean
+
+class Person(models.Model):
+    nama = models.CharField(max_length=195)
+    umur = models.IntegerField()
+    isHappy = models.BooleanField()
