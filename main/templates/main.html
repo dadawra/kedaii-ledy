@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% include 'navbar.html' %}
 <h1>Kedaii Ledy</h1>
 
 <h5>NPM: </h5>
@@ -33,6 +34,20 @@
     <td>{{product_entry.price}}</td>
     <td>{{product_entry.description}}</td>
     <td>{{product_entry.stocks}}</td>
+    <td>
+      <a href="{% url 'main:edit_product' product_entry.pk %}">
+          <button>
+              Edit
+          </button>
+      </a>
+    </td>
+    <td>
+      <a href="{% url 'main:delete_product' product_entry.pk %}">
+          <button>
+              Delete
+          </button>
+      </a>
+    </td>
   </tr>
   {% endfor %}
 </table>
