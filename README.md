@@ -1,4 +1,30 @@
-<!-- TUGAS 4 --> tugas 3 ada dibawah
+# TUGAS 5
+<!-- Tugas 4 ada dibawah -->
+**Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!**
+    CSS memiliki aturan yang disebut "specificity" atau kekhususan yang menentukan urutan prioritas saat beberapa selector digunakan pada elemen yang sama. Urutannya adalah:
+
+    1. Inline styles: Gaya yang langsung ditulis dalam atribut elemen HTML (misalnya `<div style="color: red;">`) memiliki prioritas tertinggi.
+    2. ID selector: Menggunakan tanda pagar (#) diikuti oleh ID elemen (misalnya #header) memiliki prioritas lebih tinggi daripada class atau elemen biasa.
+    3. Class, attribute, dan pseudo-class selector: Menggunakan titik untuk class (misalnya `.button`), atribut (misalnya `[type="text"]`), dan pseudo-class (misalnya `:hover`) berada di bawah ID dalam hal prioritas.
+    4. Element dan pseudo-element selector: Selector elemen (misalnya `p`, `h1`) dan pseudo-elemen (misalnya `::before`, `::after`) memiliki prioritas terendah. Jika ada dua selector dengan level prioritas yang sama, selector yang muncul terakhir dalam urutan kode akan digunakan.
+
+**Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!**
+    Responsive design penting karena memungkinkan tampilan website menyesuaikan dengan berbagai ukuran layar (seperti mobile, tablet, desktop). Selain itu, responsive design penting untuk meningkatkan pengalaman pengguna di berbagai perangkat dan mengurangi kebutuhan untuk membuat versi website terpisah (misalnya versi desktop dan versi mobile). Contoh yang sudah menerapkan responsive design: Twitter, YouTube. Contoh yang belum: beberapa website lama yang tampilan desktopnya tidak berubah ketika diakses di ponsel, misalnya SiakNG.
+
+**Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!**
+    - Margin: Jarak di luar elemen, memberikan ruang antara elemen dengan elemen lainnya. Contohnya: margin: 20px; akan memberikan jarak 20px di luar elemen tersebut. 
+    - Border: Garis yang mengelilingi elemen, memberikan batas yang terlihat di sekitar elemen. Misalnya, border: 2px solid black; akan memberikan garis hitam dengan ketebalan 2px di sekitar elemen. 
+    - Padding: Jarak di dalam elemen, yaitu antara konten elemen (misalnya teks) dan tepi dalam dari elemen tersebut. Contoh, padding: 15px; akan memberikan ruang 15px di dalam elemen antara konten dan border. 
+
+**Jelaskan konsep flex box dan grid layout beserta kegunaannya!**
+    Flexbox digunakan untuk menyusun elemen dalam satu dimensi, baik itu baris atau kolom. Flexbox digunakan untuk mengatur tata letak elemen secara dinamis, seperti menu navigasi atau tata letak yang berubah sesuai ukuran layar. 
+    Grid layout digunakan untuk menyusun elemen dalam dua dimensi, baris dan kolom, sehingga cocok untuk tata letak yang lebih kompleks seperti halaman web atau dashboard. Grid memberikan kontrol yang lebih besar untuk mendefinisikan ukuran baris, kolom, dan celah di antara elemen.
+
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!**
+
+# TUGAS 4
+<!-- tugas 3 ada dibawah -->
 **Perbedaan antara HttpResponseRedirect() dan redirect()**
     argumen pertama dari HttpResponseRedirect() hanya bisa berupa url dan hanya mereturn url, sedangkap redirect() mereturn HttpResponseRedirect() yang bisa menerima model, views, dan url menjadi argumennya.
 
@@ -52,7 +78,8 @@
     <h5>Sesi terakhir login: {{ last_login }}</h5>
     dibagian paling bawah main.html untuk memunculkan waktu terakhir login.
 
-<!-- TUGAS 3 --> tugas 2 ada dibawah
+# TUGAS 3
+<!-- tugas 2 ada dibawah -->
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
     **Membuat input form untuk objek model app sebelumnya**
     sebelum membuat input form, saya membuat base.html sebagai template dasar atau kerangka umum untuk memastikan situs web nantinya tidak terjadi redudansi kode. base.thml ini saya masukkan kedalam variabel TEMPLATES pada settings.py untuk memberi tau bahwa base.html adalah berkas template, dan di extend juga pada main.html.
@@ -88,7 +115,7 @@
     XML by ID ![alt text](image-5.png)
     JSON by ID ![alt text](image-4.png)
 
-<!-- TUGAS 2 -->
+# TUGAS 2
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
     **Membuat Proyek Django baru**
 
