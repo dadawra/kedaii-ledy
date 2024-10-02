@@ -22,6 +22,23 @@
 
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!**
+    ***Menambahkan edit dan hapus product.
+    Untuk mengimplementasikan fungsi ini, saya menambahkan fungsi baru pada views.py berupa edit_product dan delete_product. Fungsi ini sama-sama berisi parameter request dan id yang akan mengambil object product entry mana yan ingin diambil. Pada bagian akhir masing-masing fungsi akan mereturn ke edit_product.html dan kembali ke show_main. 
+
+    Selanjutnya, saya mengimport fungsi-fungsi tersebut ke dalam urls.py dan menambahkan path urlnya.
+
+    Untuk edit_product.html saya buat pada subdirektori templates di dalam main. 
+
+    Pada main.html saya juga menambahkan button untuk edit dan delete.
+
+    ***Melakukan kostumisasi login dan register.
+    Pertama saya menambahkan file global.css yang berfungsi untuk menambahkan style css yang diinginkan. Setelah itu tambahkan file ini ke base.html.
+
+    Untuk styling halaman login dan register. Saya menggunakan templates yang sama dengan yang ada pada tutorial lab 4, namun saya mengubah warna indigo menjadi warna Hijau dengan mengubah bg dan hg menjadi bg-[#3CB371] dan hg-[#3CB371].
+
+    Untuk styling tambah product dan daftar product (card product), terjadi error, dan karena saya mengerjakannya dekat dengan deadline sehingga saya belum sempat untuk memperbaikinya.
+
+    
 
 # TUGAS 4
 <!-- tugas 3 ada dibawah -->
