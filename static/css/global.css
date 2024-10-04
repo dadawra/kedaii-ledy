@@ -9,6 +9,7 @@
     border-color: #3CB371;
     box-shadow: 0 0 0 3px #3CB371;
 }
+
 @keyframes shine {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
