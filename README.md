@@ -1,3 +1,32 @@
+# TUGAS 6
+<!-- Tugas 5 ada dibawah -->
+
+### Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+    1. developer bisa membuat halaman web yang interaktif dan responsif menggunakan javascript, tanpa user perlu memuat ulang seluruh halaman.
+    2. Javascript dijalankan langsung di browser pengguna (client-side) tanpa perlu berinteraksi dengan server.
+    3. Javascript kompatibel dengan berbagai platform karena didukung oleh hampir seluruh browser modern tanpa perlu adanya intalasi tambahan.
+    4. Javascript memiliki ekosistem yang besar dengan library dan framework yang kaya sehingga mempercepat proses pengembangan dan mempermudah pengelolaan aplikasi yang kompleks.
+    5. Javascript memungkinkan perubahan konten halaman web secara dinamis tanpa memuat ulang halaman. Contohnya pada penggunaan AJAX yang memungkinkan pengambilan data dari server dan memperbaharui tampilan tanpa menganggu pengalaman pengguna.
+    6. Memiliki komunitas developer yang besar dan aktif sehingga akan ada banyak dukungan, tutorial, solusi, dan dokumentasi yang tersedia secara online.
+    7. Memiliki banyak alat dan kerangka kerja yang bisa mendukung pengembangan aplikasi untuk pengoptimalam performa, memnulis kode yang lebih bersih, dan memastikan kompatibilitas dengan berbagai browser.
+    8. JavaScript memiliki akses ke berbagai Web API yang disediakan oleh browser, seperti API, Canvas API, Web Storage, dan fetch API.
+
+### Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+    Fungsi utama dari penggunaan await dalam konteks fetch() adalah untuk menunggu operasi fetch() selesai (mengembalikan promise) untuk melanjutkan eksekusi kode berikutnya. Langkah-langkah:
+    1. fetch() akan mengembalikan promise yang menunggu respons dari server
+    2. await akan menunggu hingga permintaan (request) selesai dan mengembalikan respons sebelum melanjutkan kode berikutnya
+    3. setelah permintaan selesai, await memungkinkan untuk mengakses hasilnya secara langsung untuk diproses lebih lanjut.
+    Jika tidak menggunakan await, kita tidak bisa mendapatkan respns dari fetch() secara langsung. Selain itu, kode akan terus berjalan tanpa menunggu respons sehingga menyebabkan kesalahan saat memproses data yang belum tersedia.
+
+### Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+    Untuk menonaktifkan proteksi CSRF ketika permintaan tidak bisa melewati validasi CSRF token dengan benar.
+
+### Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+    Karena backend adalah lapisan terakhir yang bertanggung jawab atas keamaan dan integritas data yang masuk ke sistem. Backend akan memastikan data tetap diperiksa dan dibersihkan sebelum dibersihkan atau disimpan setelah melewait frontend.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+
 # TUGAS 5
 <!-- Tugas 4 ada dibawah -->
 **Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!**
