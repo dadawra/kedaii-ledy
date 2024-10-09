@@ -61,7 +61,7 @@
               </div>
               <div class="mb-4">
                 <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                <input type="number" id="price" name="price" min="1" max="10" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-teal-700" required>
+                <input type="number" id="price" name="price" min="1" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-teal-700" required>
               </div>
               <div class="mb-4">
                 <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
@@ -85,14 +85,14 @@
 
 <script>
     //  fungsi JavaScript baru untuk menambahkan data berdasarkan input ke basis data secara AJAX
-    function addMoodEntry() {
-    fetch("{% url 'main:add_mood_entry_ajax' %}", {
+    function addProductEntry() {
+    fetch("{% url 'main:add_product_entry_ajax' %}", {
         method: "POST",
-        body: new FormData(document.querySelector('#moodEntryForm')),
+        body: new FormData(document.querySelector('#productEntryForm')),
         })
-    .then(response => refreshMoodEntries())
+    .then(response => refreshProductEntries())
 
-    document.getElementById("moodEntryForm").reset(); 
+    document.getElementById("productEntryForm").reset(); 
     document.querySelector("[data-modal-toggle='crudModal']").click();
 
     return false;
