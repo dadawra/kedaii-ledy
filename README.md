@@ -31,10 +31,10 @@ Pertama, saya membuat fungsi baru pada views untuk menambahkan mood baru menggun
 Pertama menghapus baris product_entries dan baris yang mengirimkan template product_entries ke main. Selain itu saya juga mengubah pengambilan data pada show_json dan show_xml. Setelah itu, saya menghapus kode yang berisi gambar ketika tidak ada product yang avail, dan menggantinya dengan kode <div>id="product_entry_cards"</div>. 
 Setelah itu saya menambahkan fungsi fetch() dan then() untuk melakukan parse data JSON menjadi object JavaScript. Setelah itu saya menambahkan fungsi baru dengan nama refreshProductEntries() yang akan me-refresh data secara asinkronus sehingga setiap menambahkan data baru akan otomatis terupdate. Fungsi ini akan mengambil elemen berdasarkan ID nya.
 
-Selanjutnya, saya membuat modal yang akan digunakan sebagai form untuk menambahkan product. Pertama, saya menambahkan code yang berfungsi untuk mengimplementasikan modal (Tailwind), selanjutnya saya menambahkan fungsi-fungsi javascript seperti const, dan showModal() agar modal saya dapat berfungsi. Selanjutnya saya menambahkan tombol untuk menambahkan Product Entry baru menggunakan AJAX.
+Selanjutnya, saya membuat modal yang akan digunakan sebagai form untuk menambahkan product. Pertama, saya menambahkan code yang berfungsi untuk mengimplementasikan modal (Tailwind) dibawah id mood_entry_cards yang sebelumnya saya tambahkan, selanjutnya saya menambahkan fungsi-fungsi javascript seperti const, showModal() dan hideModal() agar modal saya dapat berfungsi. Selanjutnya saya menambahkan tombol untuk menambahkan Product Entry baru menggunakan AJAX.
 
 **AJAX POST**
-aya menambahkan kode yang akan mengimplementasikan modal (Tailwind) pada main.html dibawah id mood_entry_cards yang sebelumnya saya tambahkan
+Pada tahap selanjutnya, saya menambahkan fungsi addMoodEntry() pada script di dalam main.html yang akan menambahkan data berdasarkan input secara AJAX. Selanjutnya saya menambahkan event listener ketika tombol tipe submit diklik. Setelah itu saya mencoba melakukan runserver untuk mengecek apakah kode saya sudah berjalan dengan baik. Na
 
 # TUGAS 5
 <!-- Tugas 4 ada dibawah -->
