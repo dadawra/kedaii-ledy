@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block meta %}
-<title>MKedaii Ledy</title>
+<title>Kedaii Ledy</title>
 {% endblock meta %}
+
 {% block content %}
 {% include 'navbar.html' %}
 <div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen bg-gray-100 flex flex-col">
@@ -84,28 +85,14 @@
 </div>
 
 <script>
-    //  fungsi JavaScript baru untuk menambahkan data berdasarkan input ke basis data secara AJAX
-    function addProductEntry() {
-    fetch("{% url 'main:add_product_entry_ajax' %}", {
-        method: "POST",
-        body: new FormData(document.querySelector('#productEntryForm')),
-        })
-    .then(response => refreshProductEntries())
-
-    document.getElementById("productEntryForm").reset(); 
-    document.querySelector("[data-modal-toggle='crudModal']").click();
-
-    return false;
-    }
-
-    async function getProductEntries(){
+  async function getProductEntries(){
         return fetch("{% url 'main:show_json' %}").then((res) => res.json())
-    }
+  }
 
   async function refresProductEntries() {
     document.getElementById("product_entry_cards").innerHTML = "";
     document.getElementById("product_entry_cards").className = "";
-    const productEntries = await getproductEntries();
+    const productEntries = await getProductEntries();
     let htmlString = "";
     let classNameString = "";
 
@@ -121,6 +108,8 @@
     else {
         classNameString = "columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full"
         productEntries.forEach((item) => {
+            const name = DOMPurify.sanitize(item.fields.name);
+            const description = DOMPurify.sanitize(item.fields.description);
             htmlString += `
             <div class="relative break-inside-avoid">
                 <div class="absolute top-2 z-10 left-1/2 -translate-x-1/2 flex items-center -space-x-2">
@@ -143,7 +132,7 @@
                                 <div class="flex mb-2 items-center justify-between">
                                     <div>
                                         <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-                                            ${item.fields.stocks > 10 ? '10+' : item.fields.stocks}
+                                            ${item.fields.stocks > 0 ? '10+' : item.fields.stocks}
                                         </span>
                                     </div>
                                 </div>
@@ -170,12 +159,12 @@
             `;
         });
     }
-    document.getElementById("product_entry_cards").className = classNameString;
-    document.getElementById("product_entry_cards").innerHTML = htmlString;
+    // document.getElementById("product_entry_cards").className = classNameString;
+    // document.getElementById("product_entry_cards").innerHTML = htmlString;
   }
   refreshProductEntries();
 
-//   agar modal nya berfungsi:
+  //   agar modal nya berfungsi:
 
   const modal = document.getElementById('crudModal');
   const modalContent = document.getElementById('crudModalContent');
@@ -206,10 +195,27 @@
   document.getElementById("cancelButton").addEventListener("click", hideModal);
   document.getElementById("closeModalBtn").addEventListener("click", hideModal);
 
-  document.getElementById("moodEntryForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    addMoodEntry();
-  })
+
+  //  fungsi JavaScript baru untuk menambahkan data berdasarkan input ke basis data secara AJAX
+  function addProductEntry() {
+    fetch("{% url 'main:add_product_entry_ajax' %}", {
+        method: "POST",
+        body: new FormData(document.querySelector('#productEntryForm')),
+        })
+    .then(response => refreshProductEntries())
+
+    document.getElementById("productEntryForm").reset(); 
+    document.querySelector("[data-modal-toggle='crudModal']").click();
+
+    return false;
+  }
+
+  // document.getElementById("productEntryForm").addEventListener("submit", (e) => {
+  //   e.preventDefault();
+  //   addProductEntry();
+  // })
+
+  document.getElementById("submitProductEntry").onclick = addProductEntry
 </script>
 
 {% endblock content %}
